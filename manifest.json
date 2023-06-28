@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "version": "1.0",
-  "name": "Extension Starter",
-  "description": "Extensions go brrrr",
-  "author": "Dragan Okanovic <dragan.okan@gmail.com>",
-  "homepage_url": "https://github.com/abstractalgo/react-browser-extension",
+  "name": "Serpentine Dev Tools",
+  "description": "Helpers for Serpentine sites",
+  "author": "Samuel Newman <mozzius@protonmail.com>",
+  "homepage_url": "https://github.com/mozzius/serpentine-browser-extension",
   "icons": {
     "16": "icon.png",
     "32": "icon.png",
@@ -12,23 +12,30 @@
     "128": "icon.png"
   },
 
-  "permissions": [
-    "tabs",
-    "activeTab",
-    "storage"
-  ],
+  "permissions": ["tabs", "activeTab", "storage"],
   "options_page": "options.html",
   "action": {
     "default_popup": "popup.html"
   },
-  "background": {
+  "#background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [{
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": ["content-root.js", "content-react.js"],
-    "css": ["content-root.css"]
-  }]
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "https://*.lgim.com/*",
+        "https://corporate-ftgp.huguenots.co.uk/*",
+        "https://www.polarcapital.co.uk/*",
+        "https://www.svmonline.co.uk/*",
+        "https://www.springcapitalpartners.co.uk/*",
+        "https://www.cullenfunds.co.uk/*",
+        "https://evenlodeinvestment.com/*",
+        "https://www.premiermiton.com/*",
+        "https://www.oldfieldpartners.com/*"
+      ],
+      "js": ["content-root.js", "content-react.js"],
+      "css": ["content-root.css"]
+    }
+  ]
 }
